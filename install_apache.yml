@@ -7,11 +7,13 @@
   - name: update repository index
     yum:
       update_cache: yes
+    when: ansible_distribution == "CentOS"
 
   - name: install apache2 package
     yum:
       name: httpd
       state: latest
+    when: ansible_distribution == "foo"
       
   - name: add php support for apache
     yum:
